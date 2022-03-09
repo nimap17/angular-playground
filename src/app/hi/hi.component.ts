@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-hi',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hi.component.scss']
 })
 export class HiComponent implements OnInit {
+  public hiTitle ="";
 
-  constructor() { }
+  constructor(
+    private sharedService: SharedService
+  ) { }
 
   ngOnInit(): void {
+    this.hiTitle = this.sharedService.hiTitle;
   }
 
 }
